@@ -1,0 +1,10 @@
+Test Case ID,Test Case Description,Test Steps,Expected Result,Actual Result,Status,Severity Level,Remarks
+TC001,Product Listing - Image Fetch Failure,1.  Go to product listing.,Product images should load correctly,"Error message ""Image fetch failed"" appeared due to network",Failed,Medium,Fixed by resolving the network issue.
+,,2.  Simulate network issue.,,issue.,,,
+TC002,Checkout Process with Missing Cart Items,1.  Attempt to checkout with no items in the cart.,"A message should appear saying ""Your cart is empty.""","""Cart is empty"" message appeared correctly.",Passed,Low,Checkout Functionality worked as expected
+,,2.  Verify error message.,,,,,
+TC003,Product Search Functionality,Enter a search term Verify search results are relevant.,Relevant products related to search should appear.,Relevant results appeared for the search.,Passed,Medium,Search works correctly.
+TC004,Error Handling for API Failure,Disconnect internet or simulate API failure.,Error message should appear.,Error message displayed as expected.,Passed,High,Error handling works successfully
+TC005,Mobile Responsiveness,Verify that the product layout adapts correctly to all screen size.,Layout should be responsive across all devices,Layout was responsive on all screen sizes was no issues.,Passed,Low,Mobile version tested successfully.
+TC006,Security - Input Validation for Email Field,Enter an invalid email address,Form should reject invalid email formats with an error message,Invalid email format was rejected with an error.,Passed,High,Email validation works as expected.
+TC007,User Login with Incorrect Credentials,1.  Enter incorrect username/password.,"User should see an error message: ""Invalid username or password.""",Error message displayed correctly.,Passed,Medium,Handled Successfully as expected.
