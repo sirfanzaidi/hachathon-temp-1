@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 interface FilterContextType {
   selectedCategories: string[];
@@ -38,7 +39,7 @@ export const FilterContext = createContext<FilterContextType>({
   setSearchQuery: () => {},
 });
 
-export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
+function FilterProviderContent({ children }: { children: React.ReactNode }) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
@@ -94,6 +95,14 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     <FilterContext.Provider value={value}>
       {children}
     </FilterContext.Provider>
+  );
+}
+
+export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FilterProviderContent>{children}</FilterProviderContent>
+    </Suspense>
   );
 };
 
